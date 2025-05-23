@@ -8,6 +8,10 @@ from fastapi.responses import JSONResponse
 from app.routers import auth, users, messages, ws
 from app.database import Base, engine
 
+import os
+
+origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
+
 # Kreiraj tabele u bazi (za sada bez Alembic migracija)
 Base.metadata.create_all(bind=engine)
 
@@ -28,7 +32,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 # CORS konfiguracija - dozvoljava frontend na localhost:5173 da pristupa API-ju
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
