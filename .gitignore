@@ -1,0 +1,41 @@
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+ Virtual environments
+.venv/
+venv/
+
+# Environment files
+.env
+
+# Editor folders
+.vscode/
+
+# PyCharm
+.idea/
+
+# Package manager folders
+pip-wheel-metadata/
+*.egg-info/
+
+# Docker
+.docker/
+
+# Alembic
+#alembic.ini
+#alembic/*
+#!alembic/versions/
+#!alembic/versions/*
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+
+testdb.db
